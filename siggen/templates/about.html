@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible=IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Signature Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+        .header, .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="wrapper">
+        <div class="header">
+            <h1>About</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+            
+        </div>
+
+        <div class="content container">
+            <h2 class="text-center mb-4">About Signature Generator</h2>
+            <p>
+                Signature Generator adalah aplikasi yang dirancang untuk memudahkan pengguna dalam membuat tanda tangan digital yang terlihat profesional dan estetis. Tujuan utama dari aplikasi ini adalah menyediakan solusi cepat dan mudah bagi individu dan bisnis yang membutuhkan tanda tangan digital untuk berbagai keperluan, seperti dokumen resmi, email, dan desain personal.
+            </p>
+            <p>
+                Aplikasi ini dikembangkan oleh Samsul Dev sebagai media untuk membantu pengguna memperindah dokumen mereka serta memberikan sentuhan personal pada komunikasi digital. Selain itu, aplikasi ini diharapkan dapat berfungsi sebagai inspirasi bagi pengembangan media sosial dan alat digital lainnya.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>Samsul Dev 2024 &copy; All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

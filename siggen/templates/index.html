@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible=IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .nav-links {
+            font-size: 14px;
+        }
+        .nav-links a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="wrapper">
+        <div class="header">
+            <h1>Signature Generator</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>            
+        </div>
+
+        <div class="content container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="text-center mb-4">Buat Tanda Tangan Anda</h2>
+                            <form method="POST">
+                                <div class="form-group">
+                                    <label for="name">Masukkan Nama Anda:</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="font">Pilih Font:</label>
+                                    <select id="font" name="font" class="form-control">
+                                        <option value="Zentaiges.ttf">Zentaiges</option>
+                                        <option value="Sparkling Horizon.ttf">Sparking Horizon</option>
+                                        <option value="Santa Catalina1.otf">Santa Catalina1</option>
+                                        <option value="Autography.otf">Autoghrapy</option>
+                                        <option value="Pretty Dahlia.otf">Pretty Danisha</option>
+                                        <option value="Photograph Signature.ttf">Photography</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block mt-3">Generate Signature</button>
+                            </form>
+
+                            {% if signature_image %}
+                            <h2 class="text-center mt-4">Hasil Tanda Tangan:</h2>
+                            <div class="text-center">
+                                <img id="signatureImage" src="{{ url_for('static', filename=signature_image.split('/')[-1]) }}" alt="Signature" class="img-fluid mt-3">
+                                <a id="downloadButton" class="btn btn-success mt-4" download="signature.png" href="{{ url_for('static', filename=signature_image.split('/')[-1]) }}">Download</a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Samsul Dev 2024 &copy; All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
